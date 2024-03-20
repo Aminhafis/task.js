@@ -1,0 +1,61 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <h2>Javascript program using array methods.</h2>
+
+    <script>
+    // [pid:,pName:,band:,price:,display:] 
+    const mobil_data = [
+        [100,'apple','5g',120000,'led'],[101,'samsung','5g',45000,'led'],[102,'blackberry','4g',50000,'led'],
+        [103,'nokia','3g',1200,'lcd'],[104,'motorola','4g',10000,'lcd']
+    ];
+
+    console.log(mobil_data);
+    mobil_data.forEach(item => {
+    console.log(item[1]); 
+    });
+
+    mobil_data.forEach(item => {
+        if (item[4] === 'lcd') {
+            console.log("Product id :",item[0]);
+            console.log("Product name:",item[1]);
+            console.log("Band :",item[2]);
+            console.log("Price :",item[3]);
+            console.log("Display :",item[4]);
+            console.log('------------------------');
+        }
+
+    });
+    mobil_data.forEach(item => {
+        if (item [2] === '5g') {
+            console.log(item [1]);
+        }
+    });
+
+    function filterMobilesByPrice(price) {
+        return mobil_data.filter(item => item[3] === price);
+    }
+
+    const filteredMobiles = filterMobilesByPrice(50000) ;
+    console.log(filteredMobiles);
+
+    const costliestMobil = mobil_data.reduce((maxCost, CurrentCost) => {
+        return CurrentCost[3] > maxCost[3] ? CurrentCost : maxCost ;
+    });
+    
+    console.log('Costliest mobil :',costliestMobil);
+
+    const lowCostliestMobil = mobil_data.reduce((mincost, CurrentCost) => {
+        return CurrentCost[3] < mincost[3] ? CurrentCost : mincost ;
+    });
+
+    console.log('Low Costliest mobil :',lowCostliestMobil);
+    </script>
+    
+</body>
+</html>

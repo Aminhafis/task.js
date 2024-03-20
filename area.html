@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <h2>Javascript program to enter the radius of a circle and find its area,perimeter,diameter.</h2>
+    <p id="demo"></p>
+    <p id="demo1"></p>
+    <p id="demo2"></p>
+
+    <script>
+let r = parseInt(prompt("Enter the radius of the circle :"));
+
+
+let diameter = 2*r;
+let Area = 3.14*r*r;
+let circumference = 2*3.14*r;
+
+// document.getElementById("demo").innerHTML=c;
+document.getElementById("demo").innerHTML=diameter;
+document.getElementById("demo1").innerHTML=Area;
+document.getElementById("demo2").innerHTML=circumference
+
+    </script>
+</body>
+</html>

@@ -1,0 +1,79 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+   <h2>Javascript Program using array methods.</h2> 
+
+   <script>
+
+    //[ no,district,+ve cases,death rate,curred rate,1st dose vaccine,2nd dose vaccine]
+    
+    const covid_data = [
+    [1, 'Ernakulam', 34000, 2000, 23000, 20000, 2000],
+    [2, 'Idukki', 14000, 3000, 25000, 30000, 1000],
+    [3,'Thrissur',24000,4000,33000,24000,2500],
+    [4,'Pathananthitta',20000,2000,45000,22000,1500],
+    [5,'Kozhikode',44000,5000,12000,21000,500],
+    [6,'Palakkad',12000,1000,20000,23000,3400],
+    [7,'Kottayam',27000,1500,27000,14000,1000],
+    [8,'Kollam',14000,2500,25000,18000,2700]
+    ];
+
+    console.log(covid_data);
+
+    // Find district with the highest positive cases using reduce
+
+const districtWithHighestPositiveCases = covid_data.reduce((maxDistrict, currentDistrict) => {
+    return currentDistrict[2] > maxDistrict[2] ? currentDistrict : maxDistrict;
+});
+
+console.log('1. District with Highest +ve cases:', districtWithHighestPositiveCases[1]);
+
+//2. district having Highest 1st dose vaccine - 
+
+const districtWithHighestFirstDoseVaccine = covid_data.reduce((maxDistrict, currentDistrict) => {
+    return currentDistrict[5] > maxDistrict[5] ? currentDistrict : maxDistrict;
+});
+
+console.log('2. District having Highest 1st dose vaccine:',districtWithHighestFirstDoseVaccine[1]);
+
+//3. district having lowest death rate - 
+
+const districtWithLowestDeathRate = covid_data.reduce((minDistrict, currentDistrict) => {
+    return currentDistrict[3] < minDistrict[3] ? currentDistrict : minDistrict;
+});
+console.log('3.District having lowest death rate:',districtWithLowestDeathRate[1]);
+
+//4. sort data with +ve case in descending order - 
+ const sortedData = covid_data.slice().sort((a , b) => b[2] - a[2]);
+ console.log('4.Sorted data with +ve cases in descending order',sortedData);
+
+ //5. is district with +ve cases > 15000 - 
+
+ const districtWithPositiveCasesGreaterThan15000 = covid_data.some(district => district[2] > 15000);
+ console.log('5.District with positive cases greater than 15000',districtWithPositiveCasesGreaterThan15000);
+
+ //6. sort data with 1st dose vaccine - 
+
+ const sortedDataByFirstDose = covid_data.slice().sort((a , b) => a[5] - b[5]);
+ console.log('6.Sorted data with 1stdose vaccine:',sortedDataByFirstDose);
+
+ //7. Print Thrissur details - 
+
+ const thrissurDetails = covid_data.find(district => district[1] === 'Thrissur');
+ console.log('7.Thrissur district details',thrissurDetails);
+
+
+ function add(a,b){
+    return a+b
+ }
+
+ console.log(add(1,2))
+
+   </script>
+</body>
+</html>

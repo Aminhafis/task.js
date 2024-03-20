@@ -1,0 +1,23 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <h2>Enter the P,T,R and show simple interest</h2>
+    <p>Simple interest : <p id="demo"></p></p>
+    
+    <script>
+        let p = parseInt(prompt("Enter the value of P :"));
+        let t = parseInt(prompt("Enter the value of T :"));
+        let r = parseInt(prompt("Enter the value of R :"));
+
+        let SI = (p*t*r)/100 ;
+
+        document.getElementById("demo").innerHTML=SI;
+    </script>
+ 
+</body>
+</html>
